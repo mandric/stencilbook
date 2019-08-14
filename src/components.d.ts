@@ -16,6 +16,27 @@ export namespace Components {
     'match': MatchResults;
   }
   interface AppRoot {}
+  interface MyComponent {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface MyTodo {}
+  interface TodoInput {}
+  interface TodoItem {
+    'checked': boolean;
+    'index': number;
+    'text': string;
+  }
 }
 
 declare global {
@@ -38,10 +59,38 @@ declare global {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
   };
+
+  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
+  var HTMLMyComponentElement: {
+    prototype: HTMLMyComponentElement;
+    new (): HTMLMyComponentElement;
+  };
+
+  interface HTMLMyTodoElement extends Components.MyTodo, HTMLStencilElement {}
+  var HTMLMyTodoElement: {
+    prototype: HTMLMyTodoElement;
+    new (): HTMLMyTodoElement;
+  };
+
+  interface HTMLTodoInputElement extends Components.TodoInput, HTMLStencilElement {}
+  var HTMLTodoInputElement: {
+    prototype: HTMLTodoInputElement;
+    new (): HTMLTodoInputElement;
+  };
+
+  interface HTMLTodoItemElement extends Components.TodoItem, HTMLStencilElement {}
+  var HTMLTodoItemElement: {
+    prototype: HTMLTodoItemElement;
+    new (): HTMLTodoItemElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'my-component': HTMLMyComponentElement;
+    'my-todo': HTMLMyTodoElement;
+    'todo-input': HTMLTodoInputElement;
+    'todo-item': HTMLTodoItemElement;
   }
 }
 
@@ -51,11 +100,40 @@ declare namespace LocalJSX {
     'match'?: MatchResults;
   }
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface MyTodo extends JSXBase.HTMLAttributes<HTMLMyTodoElement> {}
+  interface TodoInput extends JSXBase.HTMLAttributes<HTMLTodoInputElement> {
+    'onOnTodoInputSubmit'?: (event: CustomEvent<any>) => void;
+  }
+  interface TodoItem extends JSXBase.HTMLAttributes<HTMLTodoItemElement> {
+    'checked'?: boolean;
+    'index'?: number;
+    'onOnTodoItemChecked'?: (event: CustomEvent<any>) => void;
+    'onOnTodoItemRemove'?: (event: CustomEvent<any>) => void;
+    'text'?: string;
+  }
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-profile': AppProfile;
     'app-root': AppRoot;
+    'my-component': MyComponent;
+    'my-todo': MyTodo;
+    'todo-input': TodoInput;
+    'todo-item': TodoItem;
   }
 }
 
