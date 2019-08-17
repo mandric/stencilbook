@@ -16,6 +16,40 @@ export namespace Components {
     'match': MatchResults;
   }
   interface AppRoot {}
+  interface MdcButton {
+    /**
+    * Style the button with slightly smaller text and container.
+    */
+    'dense': boolean;
+    /**
+    * Prevent the button from being clicked.
+    */
+    'disabled': boolean;
+    /**
+    * The name of the icon to use with the button.  Name must be that of the [Material Icons](https://material.io/tools/icons/?style=baseline).
+    */
+    'icon': string;
+    /**
+    * The label text to display on the button.
+    */
+    'label': string;
+    /**
+    * Style the button with an outline.
+    */
+    'outlined': boolean;
+    /**
+    * Styles the button such that it appears to be raised off the surface it is on.
+    */
+    'raised': boolean;
+    /**
+    * A flag indicating if the icon comes after the label.
+    */
+    'trailing': boolean;
+    /**
+    * Style the button such that it appears to be flush with the surface it is on.
+    */
+    'unelevated': boolean;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -60,6 +94,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLMdcButtonElement extends Components.MdcButton, HTMLStencilElement {}
+  var HTMLMdcButtonElement: {
+    prototype: HTMLMdcButtonElement;
+    new (): HTMLMdcButtonElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
@@ -87,6 +127,7 @@ declare global {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'mdc-button': HTMLMdcButtonElement;
     'my-component': HTMLMyComponentElement;
     'my-todo': HTMLMyTodoElement;
     'todo-input': HTMLTodoInputElement;
@@ -100,6 +141,40 @@ declare namespace LocalJSX {
     'match'?: MatchResults;
   }
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface MdcButton extends JSXBase.HTMLAttributes<HTMLMdcButtonElement> {
+    /**
+    * Style the button with slightly smaller text and container.
+    */
+    'dense'?: boolean;
+    /**
+    * Prevent the button from being clicked.
+    */
+    'disabled'?: boolean;
+    /**
+    * The name of the icon to use with the button.  Name must be that of the [Material Icons](https://material.io/tools/icons/?style=baseline).
+    */
+    'icon'?: string;
+    /**
+    * The label text to display on the button.
+    */
+    'label'?: string;
+    /**
+    * Style the button with an outline.
+    */
+    'outlined'?: boolean;
+    /**
+    * Styles the button such that it appears to be raised off the surface it is on.
+    */
+    'raised'?: boolean;
+    /**
+    * A flag indicating if the icon comes after the label.
+    */
+    'trailing'?: boolean;
+    /**
+    * Style the button such that it appears to be flush with the surface it is on.
+    */
+    'unelevated'?: boolean;
+  }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
     * The first name
@@ -130,6 +205,7 @@ declare namespace LocalJSX {
     'app-home': AppHome;
     'app-profile': AppProfile;
     'app-root': AppRoot;
+    'mdc-button': MdcButton;
     'my-component': MyComponent;
     'my-todo': MyTodo;
     'todo-input': TodoInput;

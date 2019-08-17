@@ -12,13 +12,14 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "build-storybook": "build-storybook"
   },
-  "dependencies": {
-    "@stencil/core": "^1.2.1",
-    "@stencil/router": "^1.0.1"
-  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@material/button": "^3.1.0",
+    "@material/ripple": "^3.1.0",
+    "@stencil/core": "^1.2.5",
+    "@stencil/router": "^1.0.1",
+    "@stencil/sass": "^1.0.1",
     "@storybook/addon-a11y": "^5.1.11",
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
