@@ -50,6 +50,28 @@ export namespace Components {
     */
     'unelevated': boolean;
   }
+  interface MdcSelect {
+    /**
+    * Flag indicating if the style of the select should be an outline. Flag indicating if this select menu is disabled.
+    */
+    'disabled': boolean;
+    /**
+    * The list of items that will be displayed in the dropdown menu.
+    */
+    'items': { value: string, label: string }[];
+    /**
+    * The placeholder/label that is displayed over top of the selected item and in place of a selected item when none are selected.
+    */
+    'label': string;
+    /**
+    * A flag indicating whether or not a `select` DOM structure should be used in favour of a `ul`/`li` styled structure.
+    */
+    'native': boolean;
+    /**
+    * The width of the select box.  Must be specified when using enhanced select.
+    */
+    'selectWidth': number;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -100,6 +122,12 @@ declare global {
     new (): HTMLMdcButtonElement;
   };
 
+  interface HTMLMdcSelectElement extends Components.MdcSelect, HTMLStencilElement {}
+  var HTMLMdcSelectElement: {
+    prototype: HTMLMdcSelectElement;
+    new (): HTMLMdcSelectElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
@@ -128,6 +156,7 @@ declare global {
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
     'mdc-button': HTMLMdcButtonElement;
+    'mdc-select': HTMLMdcSelectElement;
     'my-component': HTMLMyComponentElement;
     'my-todo': HTMLMyTodoElement;
     'todo-input': HTMLTodoInputElement;
@@ -175,6 +204,28 @@ declare namespace LocalJSX {
     */
     'unelevated'?: boolean;
   }
+  interface MdcSelect extends JSXBase.HTMLAttributes<HTMLMdcSelectElement> {
+    /**
+    * Flag indicating if the style of the select should be an outline. Flag indicating if this select menu is disabled.
+    */
+    'disabled'?: boolean;
+    /**
+    * The list of items that will be displayed in the dropdown menu.
+    */
+    'items'?: { value: string, label: string }[];
+    /**
+    * The placeholder/label that is displayed over top of the selected item and in place of a selected item when none are selected.
+    */
+    'label'?: string;
+    /**
+    * A flag indicating whether or not a `select` DOM structure should be used in favour of a `ul`/`li` styled structure.
+    */
+    'native'?: boolean;
+    /**
+    * The width of the select box.  Must be specified when using enhanced select.
+    */
+    'selectWidth'?: number;
+  }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
     * The first name
@@ -206,6 +257,7 @@ declare namespace LocalJSX {
     'app-profile': AppProfile;
     'app-root': AppRoot;
     'mdc-button': MdcButton;
+    'mdc-select': MdcSelect;
     'my-component': MyComponent;
     'my-todo': MyTodo;
     'todo-input': TodoInput;
